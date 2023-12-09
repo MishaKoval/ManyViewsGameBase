@@ -1,13 +1,10 @@
 ﻿namespace Core.UI.Windows
 {
-    public class DailyBonusWindow : WindowWithIntent<DailyBonusIntent>
+    public class DailyBonusWindow : SecondaryWindow<DailyBonusIntent>
     {
     }
 
-    public class DailyBonusIntent : EmptyIntent
+    public class DailyBonusIntent : SecondaryWindowsIntent
     {
-        public DailyBonusIntent()
-        {
-        }
     }
 }

@@ -1,13 +1,10 @@
 ﻿namespace Core.UI.Windows
 {
-    public class SettingsWindow : WindowWithIntent<SettingsWindowIntent>
+    public class SettingsWindow : SecondaryWindow<SettingsWindowIntent>
     {
     }
 
-    public class SettingsWindowIntent : EmptyIntent
+    public class SettingsWindowIntent : SecondaryWindowsIntent
     {
-        public SettingsWindowIntent()
-        {
-        }
     }
 }

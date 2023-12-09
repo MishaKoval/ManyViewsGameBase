@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7939214614796191704}
   - component: {fileID: 1202831264210922987}
   m_Layer: 5
-  m_Name: PlayButton (1)
+  m_Name: GiftButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 5409783321401041593}
-  isNeedCache: 0
+  isNeedCache: 1
+  settingsButton: {fileID: 4177786308343005480}
+  shopButton: {fileID: 3568979447988557511}
+  dailyBonusButton: {fileID: 1202831264210922987}
+  levelsButton: {fileID: 1978795183702801129}
 --- !u!1 &775272917405059541
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +264,7 @@ GameObject:
   - component: {fileID: 3389613126654598294}
   - component: {fileID: 6312945308898686908}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WalletCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +401,7 @@ GameObject:
   - component: {fileID: 3132717453466985975}
   - component: {fileID: 3568979447988557511}
   m_Layer: 5
-  m_Name: PlayButton (3)
+  m_Name: ShopButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,7 +729,7 @@ GameObject:
   - component: {fileID: 5012259422477894344}
   - component: {fileID: 4581038177880324746}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Wallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1133,7 @@ GameObject:
   - component: {fileID: 9096843861991135533}
   - component: {fileID: 4177786308343005480}
   m_Layer: 5
-  m_Name: PlayButton (2)
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

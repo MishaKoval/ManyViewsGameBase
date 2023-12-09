@@ -1,13 +1,10 @@
 ﻿namespace Core.UI.Windows
 {
-    public class ShopWindow : WindowWithIntent<ShopWindowIntent>
+    public class ShopWindow : SecondaryWindow<ShopWindowIntent>
     {
     }
 
-    public class ShopWindowIntent : EmptyIntent
+    public class ShopWindowIntent : SecondaryWindowsIntent
     {
-        public ShopWindowIntent()
-        {
-        }
     }
 }

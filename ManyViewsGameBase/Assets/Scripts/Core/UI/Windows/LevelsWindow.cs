@@ -1,12 +1,9 @@
 ﻿namespace Core.UI.Windows
 {
-    public class LevelsWindow: WindowWithIntent<LevelsWindowIntent>
+    public class LevelsWindow: SecondaryWindow<LevelsWindowIntent>
     {
     }
-    public class LevelsWindowIntent : EmptyIntent
+    public class LevelsWindowIntent : SecondaryWindowsIntent
     {
-        public LevelsWindowIntent()
-        {
-        }
     }
 }
