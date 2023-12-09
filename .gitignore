@@ -125,3 +125,4 @@ Desktop.ini
 # Ignore bank files in the StreamingAssets folder.
 /[Aa]ssets/StreamingAssets/**/*.bank
 /[Aa]ssets/StreamingAssets/**/*.bank.meta
+ManyViewsGameBase/.idea
