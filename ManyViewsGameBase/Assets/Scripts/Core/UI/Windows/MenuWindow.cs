@@ -52,7 +52,7 @@ namespace Core.UI.Windows
         private async void OpenDailyBonusWindow()
         {
             Intent.SoundsManager.PlayButtonClickSound();
-            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent));
+            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent.DaysStreak,Intent));
             await dailyBonusWindow.CloseTask;
         }
 

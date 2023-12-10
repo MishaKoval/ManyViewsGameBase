@@ -4,7 +4,7 @@ namespace Core.ApplicationControllers
 {
     public class BaseApplicationController : IInitializable
     {
-        public BaseApplicationController()
+        protected BaseApplicationController()
         {
             
         }

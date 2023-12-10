@@ -5,8 +5,11 @@ namespace Core.UI.Intents
 {
     public class DailyBonusIntent : SecondaryWindowsIntent
     {
-        public DailyBonusIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,EmptyIntent intent) : base(transitionAnimation,soundsManager,intent)
+        public DaysStreak DaysStreak { get; }
+
+        public DailyBonusIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,DaysStreak daysStreak,EmptyIntent intent) : base(transitionAnimation,soundsManager,intent)
         {
+            DaysStreak = daysStreak;
         }
     }
 }
