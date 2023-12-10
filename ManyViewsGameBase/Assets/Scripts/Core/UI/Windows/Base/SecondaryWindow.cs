@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
+using Core.UI.Intents;
+using Core.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Core.UI.Windows
+namespace Core.UI.Windows.Base
 {
     public class SecondaryWindow<T> : WindowWithIntent<T> where T : SecondaryWindowsIntent 
     {

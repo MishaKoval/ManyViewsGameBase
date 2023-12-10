@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Core.UI
+namespace Core.Utils
 {
     public class TransitionAnimation : MonoBehaviour
     {

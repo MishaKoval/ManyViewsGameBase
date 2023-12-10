@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Core.UI.Intents;
+using Core.UI.Windows.Base;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Core.UI.Windows
@@ -41,16 +43,6 @@ namespace Core.UI.Windows
                 Intent.SoundsManager.StopBackgroundMusic();
             }
             Intent.PlayerPreferences.OnChangeMusicState(value);
-        }
-    }
-
-    public class SettingsWindowIntent : SecondaryWindowsIntent
-    {
-        public PlayerPreferences PlayerPreferences { get; }
-
-        public SettingsWindowIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,PlayerPreferences playerPreferences,EmptyIntent emptyIntent) : base(transitionAnimation,soundsManager,emptyIntent)
-        {
-            PlayerPreferences = playerPreferences;
         }
     }
 }

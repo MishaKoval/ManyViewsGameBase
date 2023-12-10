@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Core
+namespace Core.Utils
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class PlayerPreferences
     {
         private const string MusicKey = "Music";

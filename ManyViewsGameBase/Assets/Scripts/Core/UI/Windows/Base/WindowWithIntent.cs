@@ -1,6 +1,7 @@
 using Core.Interfaces;
+using Core.UI.Intents;
 
-namespace Core.UI
+namespace Core.UI.Windows.Base
 {
     public abstract class WindowWithIntent<TIntent> : WindowBase, IIntentSetter<TIntent> where TIntent : EmptyIntent
     {

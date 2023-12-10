@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Core.UI.Intents;
+using Core.UI.Windows.Base;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Core.UI.Windows
@@ -62,20 +64,6 @@ namespace Core.UI.Windows
                 Close();
             }
             return WindowsController.Open<T, T1>(intent);
-        }
-    }
-
-    public class MenuWindowIntent : EmptyIntent
-    {
-        public TransitionAnimation TransitionAnimation { get; }
-        public SoundsManager SoundsManager { get; }
-        public PlayerPreferences PlayerPreferences { get; }
-
-        public MenuWindowIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,PlayerPreferences playerPreferences)
-        {
-            TransitionAnimation = transitionAnimation;
-            SoundsManager = soundsManager;
-            PlayerPreferences = playerPreferences;
         }
     }
 }

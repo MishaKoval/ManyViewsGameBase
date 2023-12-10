@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Interfaces;
+using Core.UI.Intents;
+using Core.UI.Windows.Base;
 using UnityEngine;
 
 namespace Core.UI
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class WindowsController : IWindowsController, IWindowsContainer
     {
         private readonly Transform uiRoot;
@@ -29,7 +32,7 @@ namespace Core.UI
             }
         }
 
-        public void RegisterWindow(WindowBase window)
+        private void RegisterWindow(WindowBase window)
         {
             var windowType = window.GetType();
             registeredWindows.TryAdd(windowType, window);

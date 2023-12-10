@@ -1,6 +1,7 @@
 using Core.ApplicationControllers;
 using Core.UI;
 using Core.UI.Windows;
+using Core.Utils;
 
 namespace Core.Installers
 {

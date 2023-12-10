@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core.UI;
+using Core.UI.Windows.Base;
 
 namespace Core.Interfaces
 {

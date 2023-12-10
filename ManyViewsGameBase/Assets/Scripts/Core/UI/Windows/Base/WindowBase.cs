@@ -2,23 +2,19 @@ using System.Threading.Tasks;
 using Core.Interfaces;
 using UnityEngine;
 
-namespace Core.UI
+namespace Core.UI.Windows.Base
 {
     public abstract class WindowBase : MonoBehaviour, IWindowsControllerContainer
     {
         [SerializeField] protected GameObject content;
         [SerializeField] private bool isNeedCache = true;
-        
-        protected bool closeResult = false;
+        public Task<bool> CloseTask => openTaskSource?.Task ?? Task.FromResult(closeResult);
+        public bool IsNeedCache => isNeedCache;
+        protected IWindowsController WindowsController { get; private set; }
+        private readonly bool closeResult = false;
         private bool isOpened;
         private TaskCompletionSource<bool> openTaskSource;
         
-        public Task<bool> CloseTask => openTaskSource?.Task ?? Task.FromResult(closeResult);
-        public bool IsNeedCache => isNeedCache;
-        public IWindowsController WindowsController { get; private set; }
-
-        
-
         public async void Open()
         {
             if (isOpened)
