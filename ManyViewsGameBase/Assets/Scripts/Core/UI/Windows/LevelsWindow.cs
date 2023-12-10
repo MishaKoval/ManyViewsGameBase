@@ -5,5 +5,8 @@
     }
     public class LevelsWindowIntent : SecondaryWindowsIntent
     {
+        public LevelsWindowIntent(TransitionAnimation transitionAnimation) : base(transitionAnimation)
+        {
+        }
     }
 }

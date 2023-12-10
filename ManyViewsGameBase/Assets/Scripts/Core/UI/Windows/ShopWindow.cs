@@ -6,5 +6,8 @@
 
     public class ShopWindowIntent : SecondaryWindowsIntent
     {
+        public ShopWindowIntent(TransitionAnimation transitionAnimation) : base(transitionAnimation)
+        {
+        }
     }
 }

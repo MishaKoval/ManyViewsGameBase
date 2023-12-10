@@ -6,5 +6,8 @@
 
     public class SettingsWindowIntent : SecondaryWindowsIntent
     {
+        public SettingsWindowIntent(TransitionAnimation transitionAnimation) : base(transitionAnimation)
+        {
+        }
     }
 }

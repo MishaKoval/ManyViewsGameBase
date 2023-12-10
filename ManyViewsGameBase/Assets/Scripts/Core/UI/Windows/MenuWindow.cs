@@ -28,25 +28,25 @@ namespace Core.UI.Windows
 
         private async void OpenSettingWindow()
         {
-            var settingsWindow = OpenWindow<SettingsWindow, SettingsWindowIntent>(new SettingsWindowIntent());
+            var settingsWindow = OpenWindow<SettingsWindow, SettingsWindowIntent>(new SettingsWindowIntent(Intent.transitionAnimation));
             await settingsWindow.CloseTask;
         }
 
         private async void OpenLevelsWindow()
         {
-            var levelsWindow = OpenWindow<LevelsWindow, LevelsWindowIntent>(new LevelsWindowIntent());
+            var levelsWindow = OpenWindow<LevelsWindow, LevelsWindowIntent>(new LevelsWindowIntent(Intent.transitionAnimation));
             await levelsWindow.CloseTask;
         }
 
         private async void OpenShopWindow()
         {
-            var shopWindow = OpenWindow<ShopWindow, ShopWindowIntent>(new ShopWindowIntent());
+            var shopWindow = OpenWindow<ShopWindow, ShopWindowIntent>(new ShopWindowIntent(Intent.transitionAnimation));
             await shopWindow.CloseTask;
         }
 
         private async void OpenDailyBonusWindow()
         {
-            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent());
+            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent(Intent.transitionAnimation));
             await dailyBonusWindow.CloseTask;
         }
 
@@ -63,8 +63,11 @@ namespace Core.UI.Windows
 
     public class MenuWindowIntent : EmptyIntent
     {
-        public MenuWindowIntent()
+        public readonly TransitionAnimation transitionAnimation;
+        
+        public MenuWindowIntent(TransitionAnimation transitionAnimation)
         {
+            this.transitionAnimation = transitionAnimation;
         }
     }
 }

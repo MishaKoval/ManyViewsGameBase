@@ -6,5 +6,8 @@
 
     public class DailyBonusIntent : SecondaryWindowsIntent
     {
+        public DailyBonusIntent(TransitionAnimation transitionAnimation) : base(transitionAnimation)
+        {
+        }
     }
 }

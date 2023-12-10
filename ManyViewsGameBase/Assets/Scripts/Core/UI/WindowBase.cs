@@ -27,8 +27,8 @@ namespace Core.UI
             }
             
             OnOpening();
-            OpenInternal();
             await AnimateOpening();
+            OpenInternal();
             OnOpened();
         }
         
