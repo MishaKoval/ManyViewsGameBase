@@ -15,7 +15,7 @@ namespace Core.UI.Windows
 
         protected override Task AnimateOpening()
         {
-            return Intent.transitionAnimation.WaitVignetteChange();
+            return Intent.TransitionAnimation.WaitVignetteChange();
         }
 
         protected override void OnOpening()
@@ -30,18 +30,23 @@ namespace Core.UI.Windows
 
         private void BackToMenu()
         {
+            Intent.SoundsManager.PlayButtonClickSound();
             Close();
-            WindowsController.Open<MenuWindow, MenuWindowIntent>(new MenuWindowIntent(Intent.transitionAnimation));
+            WindowsController.Open<MenuWindow, MenuWindowIntent>((MenuWindowIntent)Intent.ParentIntent);
         }
     }
 
     public class SecondaryWindowsIntent : EmptyIntent
     {
-        public readonly TransitionAnimation transitionAnimation;
-        
-        public SecondaryWindowsIntent(TransitionAnimation transitionAnimation)
+        public TransitionAnimation TransitionAnimation { get; }
+        public SoundsManager SoundsManager { get; }
+        public EmptyIntent ParentIntent { get; }
+
+        protected SecondaryWindowsIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,EmptyIntent parentIntent)
         {
-            this.transitionAnimation = transitionAnimation;
+            TransitionAnimation = transitionAnimation;
+            SoundsManager = soundsManager;
+            ParentIntent = parentIntent;
         }
     }
 }

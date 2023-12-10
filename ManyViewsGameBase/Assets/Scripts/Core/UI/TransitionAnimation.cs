@@ -3,24 +3,13 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace Core.UI.Windows
+namespace Core.UI
 {
     public class TransitionAnimation : MonoBehaviour
     {
-        private const float DefaultVignetteValue = 0f;
-        
-        private const float MaxVignetteValue = 1f;
-        
         [SerializeField] private VolumeProfile volumeProfile;
-        
-        private void Start()
-        {
-            ChangeVignetteValue(DefaultVignetteValue);
-        }
-        private void OnDestroy()
-        {
-            ChangeVignetteValue(DefaultVignetteValue);
-        }
+        private const float DefaultVignetteValue = 0f;
+        private const float MaxVignetteValue = 1f;
         
         [ContextMenu("Test")]
         public async Task<bool> WaitVignetteChange()
@@ -37,7 +26,15 @@ namespace Core.UI.Windows
             ChangeVignetteValue(DefaultVignetteValue);
             return true;
         }
-
+        
+        private void Start()
+        {
+            ChangeVignetteValue(DefaultVignetteValue);
+        }
+        private void OnDestroy()
+        {
+            ChangeVignetteValue(DefaultVignetteValue);
+        }
         
         private void ChangeVignetteValue(float value)
         {
@@ -46,6 +43,5 @@ namespace Core.UI.Windows
                 bloom.intensity.value = value;
             }
         }
-       
     }
 }

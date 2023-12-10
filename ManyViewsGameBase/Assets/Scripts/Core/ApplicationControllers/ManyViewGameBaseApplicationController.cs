@@ -1,23 +1,28 @@
 using Core.Interfaces;
+using Core.UI;
 using Core.UI.Windows;
 
 namespace Core.ApplicationControllers
 {
     public class ManyViewGameBaseApplicationController : BaseApplicationController
     {
-        private IWindowsController WindowsController { get; }
-
+        private readonly IWindowsController windowsController;
         private readonly TransitionAnimation transitionAnimation;
+        private readonly SoundsManager soundsManager;
+        private readonly PlayerPreferences playerPreferences;
         
-        public ManyViewGameBaseApplicationController(IWindowsController windowsController,TransitionAnimation transitionAnimation)
+        public ManyViewGameBaseApplicationController(IWindowsController windowsController,TransitionAnimation transitionAnimation,SoundsManager soundsManager,PlayerPreferences playerPreferences)
         {
-            WindowsController = windowsController;
+            this.windowsController = windowsController;
             this.transitionAnimation = transitionAnimation;
+            this.soundsManager = soundsManager;
+            this.playerPreferences = playerPreferences;
         }
 
         protected override void OnInitialize()
         {
-            WindowsController.Open<MenuWindow, MenuWindowIntent>(new MenuWindowIntent(transitionAnimation));
+            soundsManager.Init(playerPreferences.MusicEnabled,playerPreferences.MusicEnabled);
+            windowsController.Open<MenuWindow, MenuWindowIntent>(new MenuWindowIntent(transitionAnimation,soundsManager,playerPreferences));
         }
     }
 }

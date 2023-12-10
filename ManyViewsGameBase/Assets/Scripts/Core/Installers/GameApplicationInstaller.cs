@@ -1,16 +1,17 @@
 using Core.ApplicationControllers;
+using Core.UI;
 using Core.UI.Windows;
-using UnityEngine;
 
 namespace Core.Installers
 {
     class GameApplicationInstaller : ApplicationInstaller
     {
-        [SerializeField] private TransitionAnimation transitionAnimation;
-        
         protected override void BindClasses()
         {
-            Container.BindInterfacesTo<ManyViewGameBaseApplicationController>().AsSingle().WithArguments(transitionAnimation);
+            Container.Bind<PlayerPreferences>().AsSingle();
+            Container.Bind<SoundsManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<TransitionAnimation>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<ManyViewGameBaseApplicationController>().AsSingle();
         }
     }
 }

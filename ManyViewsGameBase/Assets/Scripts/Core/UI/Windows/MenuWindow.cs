@@ -9,7 +9,7 @@ namespace Core.UI.Windows
         [SerializeField] private Button shopButton;
         [SerializeField] private Button dailyBonusButton;
         [SerializeField] private Button levelsButton;
-
+        
         protected override void OnOpening()
         {
             settingsButton.onClick.AddListener(OpenSettingWindow);
@@ -25,28 +25,32 @@ namespace Core.UI.Windows
             dailyBonusButton.onClick.RemoveListener(OpenDailyBonusWindow);
             levelsButton.onClick.RemoveListener(OpenLevelsWindow);
         }
-
+        
         private async void OpenSettingWindow()
         {
-            var settingsWindow = OpenWindow<SettingsWindow, SettingsWindowIntent>(new SettingsWindowIntent(Intent.transitionAnimation));
+            Intent.SoundsManager.PlayButtonClickSound();
+            var settingsWindow = OpenWindow<SettingsWindow, SettingsWindowIntent>(new SettingsWindowIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent.PlayerPreferences,Intent));
             await settingsWindow.CloseTask;
         }
 
         private async void OpenLevelsWindow()
         {
-            var levelsWindow = OpenWindow<LevelsWindow, LevelsWindowIntent>(new LevelsWindowIntent(Intent.transitionAnimation));
+            Intent.SoundsManager.PlayButtonClickSound();
+            var levelsWindow = OpenWindow<LevelsWindow, LevelsWindowIntent>(new LevelsWindowIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent));
             await levelsWindow.CloseTask;
         }
 
         private async void OpenShopWindow()
         {
-            var shopWindow = OpenWindow<ShopWindow, ShopWindowIntent>(new ShopWindowIntent(Intent.transitionAnimation));
+            Intent.SoundsManager.PlayButtonClickSound();
+            var shopWindow = OpenWindow<ShopWindow, ShopWindowIntent>(new ShopWindowIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent));
             await shopWindow.CloseTask;
         }
 
         private async void OpenDailyBonusWindow()
         {
-            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent(Intent.transitionAnimation));
+            Intent.SoundsManager.PlayButtonClickSound();
+            var dailyBonusWindow = OpenWindow<DailyBonusWindow, DailyBonusIntent>(new DailyBonusIntent(Intent.TransitionAnimation,Intent.SoundsManager,Intent));
             await dailyBonusWindow.CloseTask;
         }
 
@@ -63,11 +67,15 @@ namespace Core.UI.Windows
 
     public class MenuWindowIntent : EmptyIntent
     {
-        public readonly TransitionAnimation transitionAnimation;
-        
-        public MenuWindowIntent(TransitionAnimation transitionAnimation)
+        public TransitionAnimation TransitionAnimation { get; }
+        public SoundsManager SoundsManager { get; }
+        public PlayerPreferences PlayerPreferences { get; }
+
+        public MenuWindowIntent(TransitionAnimation transitionAnimation,SoundsManager soundsManager,PlayerPreferences playerPreferences)
         {
-            this.transitionAnimation = transitionAnimation;
+            TransitionAnimation = transitionAnimation;
+            SoundsManager = soundsManager;
+            PlayerPreferences = playerPreferences;
         }
     }
 }
